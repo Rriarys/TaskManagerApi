@@ -29,6 +29,8 @@ namespace TaskManagerApi
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+            // Включаем CORS
+            app.UseCors("AllowAll");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
