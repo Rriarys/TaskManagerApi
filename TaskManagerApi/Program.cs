@@ -10,6 +10,16 @@ namespace TaskManagerApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Добавляем политику CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder => builder
+                        .AllowAnyOrigin()  // Разрешаем все источники
+                        .AllowAnyMethod()  // Разрешаем все методы
+                        .AllowAnyHeader()); // Разрешаем все заголовки
+            });
+
             // Add services to the container.
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
