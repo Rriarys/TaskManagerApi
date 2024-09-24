@@ -5,7 +5,7 @@ using TaskManagerApi.Data;
 namespace TaskManagerApi.Controllers
 {
     [ApiController]
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     public class TasksController : ControllerBase
     {
         private readonly AppDbContext _context;
